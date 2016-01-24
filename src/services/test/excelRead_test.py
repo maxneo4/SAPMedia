@@ -1,11 +1,11 @@
 import unittest
-import importation
+import metrics_importation
 
 
 class XSLMReader(unittest.TestCase):
     def test_something(self):
-        importation.import_articles()
-        importation.import_videos()
+        metrics_importation.import_articles('Global Master Deck ENG Articles Q4.xlsm')
+        metrics_importation.import_videos('Global Master Deck ENG Articles Q4.xlsm')
 
 if __name__ == '__main__':
     unittest.main()

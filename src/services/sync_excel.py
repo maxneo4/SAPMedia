@@ -25,6 +25,7 @@ def get_data_from_excel(book_file_name, sheet_name, initial_row, number_columns)
     skip_rows(records, initial_row)
     return get_data_records(number_columns, records)
 
+
 def import_to_database(database_name, insert_query ,data_records):
     conn = sqlite3.connect(database_name)
     cursor = conn.cursor()
