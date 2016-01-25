@@ -2,15 +2,16 @@ import sqlite3
 import sys
 import json   
 import responses
+from root_path import resolve_path
     
 def open_connection_with_dict_factory():
-    connection = sqlite3.connect('Metrics.db3')
+    connection = sqlite3.connect(resolve_path('Metrics.db3'))
     connection.row_factory = dict_factory
     return connection
 
 
 def open_connection():
-    connection = sqlite3.connect('Metrics.db3')
+    connection = sqlite3.connect(resolve_path('Metrics.db3'))
     return connection
 
 

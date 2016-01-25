@@ -1,9 +1,11 @@
 import unittest
 from business import reports
 import array_operations
+import root_path
 
 class HtmlGenerator(unittest.TestCase):
 
+    root_path.root_path = '../'
 
     def test_generation_report(self):
       print reports.get_rows_from_publications_per_year()

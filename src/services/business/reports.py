@@ -1,6 +1,7 @@
 import calendar
 import array_operations
 from data import data_reports
+from root_path import resolve_path
 
 def transform_matrix(matrix):
     for idx, row in enumerate(matrix):
@@ -25,6 +26,6 @@ def get_rows_from_publications_per_year():
 
 
 def get_template(template_name):
-    file = open('templates/{}'.format(template_name), 'r')
+    file = open(resolve_path('templates/{}').format(template_name), 'r')
     template = file.read()
     return template
