@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import metrics_importation
 from max_dev import maxrest
-from business import reports
+from business import reportsbusiness
 
 app = Flask(__name__)
 
@@ -16,14 +16,8 @@ def sync_excel_with_data_base():
 def home():
     return 'HOME'
 
-@app.route('/reports/publications_per_year')
+@app.route('/reports/publications/<type>/per_year')
 def get_report_publications_per_year():
-    rows_and_total = reports.get_rows_from_publications_per_year()
+    rows_and_total = reportsbusiness.get_rows_from_publications_per_year()
     print rows_and_total
-    return render_template('report_publication_per_year.htm', rows_and_total=rows_and_total)
-
-
-@app.route('/hello/')
-@app.route('/hello/<name>')
-def hello(name=None):
-    return render_template('hello.html', name=name)
+    return render_template('articles_per_year.htm', rows_and_total=rows_and_total)
