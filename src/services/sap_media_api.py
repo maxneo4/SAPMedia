@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 import metrics_importation
-import responses
+from max_dev import maxrest
 from business import reports
 
 app = Flask(__name__)
@@ -10,7 +10,7 @@ def sync_excel_with_data_base():
     file_path = request.json['file_path']
     metrics_importation.import_articles(file_path)
     metrics_importation.import_videos(file_path)
-    return responses.get_json_status({'success':True},200)
+    return maxrest.build_json_response({'success':True},200)
 
 @app.route('/')
 def home():
