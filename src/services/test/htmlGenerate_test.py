@@ -11,11 +11,23 @@ class HtmlGenerator(unittest.TestCase):
     def test_generation_report(self):
         data = report_per_year.get_transformed_data()
         print report_per_year.generate_months_part(data)
+        print report_per_year.generate_total_year_part(data)
+        print report_per_year.generate_quarter1_part(data)
+        print report_per_year.generate_quarter2_part(data)
+        print report_per_year.generate_quarter3_part(data)
+        print report_per_year.generate_quarter4_part(data)
 
     def test_sum_columns(self):
         data = [['Jan',4,4,4],['Feb',2,-2,4]]
-        print maxarray.sum_total_columns(data, axis=range(1,4))
+        result = maxarray.sum_total_columns(data, axis_columns=range(1,4))
+        self.assertEquals([6, 2, 8], result)
+        print result
 
+    def test_sum_total_columns_from_rows(self):
+        data = [['Jan',4,4,4],['Feb',2,-2,4], ['March', 10,5,10,5], ['April', 4,4,4]]
+        result = maxarray.sum_total_columns_from_rows(data, axis_columns=range(1,4), axis_rows=[0,3])
+        self.assertEquals([8, 8, 8], result)
+        print result
 
 
 if __name__ == '__main__':
