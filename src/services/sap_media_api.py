@@ -1,7 +1,8 @@
-from flask import Flask, request, render_template
+from flask import Flask, request
 import metrics_importation
+import sys
 from max_dev import maxrest
-from business import reportsbusiness
+from reports.publications.articles import report_per_year
 
 app = Flask(__name__)
 
@@ -16,8 +17,10 @@ def sync_excel_with_data_base():
 def home():
     return 'HOME'
 
-@app.route('/reports/publications/<type>/per_year')
+@app.route('/reports/publications/articles/per_year')
 def get_report_publications_per_year():
-    rows_and_total = reportsbusiness.get_rows_from_publications_per_year()
-    print rows_and_total
-    return render_template('articles_per_year.htm', rows_and_total=rows_and_total)
+    try:
+        return report_per_year.generate_report()
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
