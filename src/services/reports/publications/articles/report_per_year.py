@@ -27,14 +27,14 @@ def generate_quarter4_part(transformed_data):
     return fill_quarter(transformed_data.quarter4_total, quarter_number='4')
 
 
-def generate_report():
-    transformed_data = get_transformed_data()
+def generate_report(year):
+    transformed_data = get_transformed_data(year)
     rows_and_total = generate_months_part(transformed_data) + generate_total_year_part(transformed_data)
     quarters = generate_quarter1_part(transformed_data) + generate_quarter2_part(transformed_data) \
         + generate_quarter3_part(transformed_data) + generate_quarter4_part(transformed_data)
     return render_template('articles_per_year.htm', rows_and_total=rows_and_total, quarters=quarters)
 
 
-def get_transformed_data():
-    matrix = data_report.get_data_report_publications_per_year()
+def get_transformed_data(year):
+    matrix = data_report.get_data_report_publications_per(year=year)
     return processor_data.process_data(matrix)

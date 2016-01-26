@@ -9,7 +9,7 @@ class HtmlGenerator(unittest.TestCase):
     root_path.root_path = '../'
 
     def test_generation_report(self):
-        data = report_per_year.get_transformed_data()
+        data = report_per_year.get_transformed_data(2015)
         print report_per_year.generate_months_part(data)
         print report_per_year.generate_total_year_part(data)
         print report_per_year.generate_quarter1_part(data)

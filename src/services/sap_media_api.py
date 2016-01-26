@@ -17,10 +17,10 @@ def sync_excel_with_data_base():
 def home():
     return 'HOME'
 
-@app.route('/reports/publications/articles/per_year')
-def get_report_publications_per_year():
+@app.route('/reports/publications/articles/per_year/<year>')
+def get_report_publications_per_year(year):
     try:
-        return report_per_year.generate_report()
+        return report_per_year.generate_report(year)
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
