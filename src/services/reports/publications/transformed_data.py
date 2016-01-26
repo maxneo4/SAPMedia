@@ -7,3 +7,4 @@ class TransformedData:
         self.quarter2_total = None
         self.quarter3_total = None
         self.quarter4_total = None
+        self.title = 'None title'

@@ -168,7 +168,7 @@
             mso-number-format:0;
             text-align:general;
             vertical-align:bottom;
-            background:#BF8F00;
+            background:#FFC000;
             mso-pattern:black none;
             white-space:nowrap;}
         .brands
@@ -235,16 +235,17 @@
 
 	<table border=0 cellpadding=0 cellspacing=0 width='80%' style='border-collapse:
  collapse;table-layout:fixed;width:1024pt'>
-		<col width=76 span=7 style='width:57pt'>
-		<col width=131 style='mso-width-source:userset;mso-width-alt:4790;width:98pt'>
+        <col width=76 style='width:40pt'>
+		<col width=76 span=6 style='width:57pt'>
+		<col width=131 style='mso-width-source:userset;mso-width-alt:4790;width:60pt'>
 		<col width=96 style='mso-width-source:userset;mso-width-alt:3510;width:72pt'>
-		<col width=76 style='width:57pt'>
+		<col width=76 style='width:65pt'>
 		<col width=84 style='mso-width-source:userset;mso-width-alt:3072;width:63pt'>
 		<col width=79 style='mso-width-source:userset;mso-width-alt:2889;width:59pt'>
 		<col width=76 span=6 style='width:57pt'>
 		<tr height=28 style='height:21.0pt'>
 			<td height=28 class=report_title width=38 style='height:21.0pt;width:29pt'>&nbsp;</td>
-			<td colspan=9 class=report_title width=696 style='width:523pt'>Videos 2015</td>
+			<td colspan=9 class=report_title width=696 style='width:523pt'>{{ transformed_data.title }}</td>
 			<td class=report_title width=76 style='width:57pt'>&nbsp;</td>
 			<td class=report_title width=108 style='width:81pt'>&nbsp;</td>
 		</tr>
@@ -271,7 +272,23 @@
 			<td class=months_and_headers style='border-left:none'>Engagement</td>
 		</tr>
 
-		{{ rows_and_total|safe }}
+        {% for row in transformed_data.matrix_months %}
+        <tr height=20 style='height:15.0pt'>
+            <td height=20 class=months_and_headers style='height:15.0pt'>{{ row[0] }}</td>
+            {% for item in row %}
+            {% if not loop.first %}
+            <td class=months_data align=right>{{ '{:,.15g}'.format(item) }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+        <tr height=20 style='height:15.0pt'>
+            <td height=20 class=total_row style='height:15.0pt'>Total</td>
+            {% for item in transformed_data.quarter1_total %}
+            <td class=total_data align=right>{{ '{:,.15g}'.format(item) }}</td>
+            {% endfor %}
+        </tr>
 
 		<tr height=20 style='height:15.0pt'>
 			<td height=20 class=months_and_headers style='height:15.0pt'></td>
@@ -285,8 +302,7 @@
 			<td class=months_and_headers></td>
 			<td class=months_and_headers></td>
 			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
+            <td class=months_and_headers></td>
 		</tr>
 		<tr height=20 style='height:15.0pt'>
 			<td height=20 class=months_and_headers style='height:15.0pt'></td>
@@ -300,11 +316,36 @@
 			<td class=months_and_headers></td>
 			<td class=months_and_headers></td>
 			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
+            <td class=months_and_headers></td>
 		</tr>
 
-		{{ quarters|safe }}
+        <tr height=25 style='height:18.75pt'>
+            <td height=25 class=quarter_label style='height:18.75pt'>Q1</td>
+            {% for item in transformed_data.quarter1_total %}
+            <td class=quarter1_data align=right>{{ '{:,.15g}'.format(item) }}</td>
+            {% endfor %}
+        </tr>
+
+        <tr height=25 style='height:18.75pt'>
+            <td height=25 class=quarter_label style='height:18.75pt'>Q2</td>
+            {% for item in transformed_data.quarter2_total %}
+            <td class=quarter2_data align=right>{{ '{:,.15g}'.format(item) }}</td>
+            {% endfor %}
+        </tr>
+
+        <tr height=25 style='height:18.75pt'>
+            <td height=25 class=quarter_label style='height:18.75pt'>Q3</td>
+            {% for item in transformed_data.quarter3_total %}
+            <td class=quarter3_data align=right>{{ '{:,.15g}'.format(item) }}</td>
+            {% endfor %}
+        </tr>
+
+        <tr height=25 style='height:18.75pt'>
+            <td height=25 class=quarter_label style='height:18.75pt'>Q4</td>
+            {% for item in transformed_data.quarter4_total %}
+            <td class=quarter4_data align=right>{{ '{:,.15g}'.format(item) }}</td>
+            {% endfor %}
+        </tr>
 
 	</table>
 
