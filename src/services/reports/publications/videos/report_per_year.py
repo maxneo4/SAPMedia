@@ -1,10 +1,10 @@
 from flask import render_template
-from reports.publications.articles import data_report, processor_data
+from reports.publications.videos import data_report, processor_data
 
 
 def generate_report(year):
     transformed_data = get_transformed_data(year)
-    return render_template('articles_per_year.htm', transformed_data=transformed_data)
+    return render_template('videos_per_year.htm', transformed_data=transformed_data)
 
 
 def get_transformed_data(year):
