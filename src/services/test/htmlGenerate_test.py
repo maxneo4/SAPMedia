@@ -10,12 +10,7 @@ class HtmlGenerator(unittest.TestCase):
 
     def test_generation_report(self):
         data = report_per_year.get_transformed_data(2015)
-        print report_per_year.generate_months_part(data)
-        print report_per_year.generate_total_year_part(data)
-        print report_per_year.generate_quarter1_part(data)
-        print report_per_year.generate_quarter2_part(data)
-        print report_per_year.generate_quarter3_part(data)
-        print report_per_year.generate_quarter4_part(data)
+        print data
 
     def test_sum_columns(self):
         data = [['Jan',4,4,4],['Feb',2,-2,4]]
