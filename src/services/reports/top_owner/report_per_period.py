@@ -22,5 +22,5 @@ def get_type(path):
 
 def generate_report_byquarter(year, quarter, type):
     data = data_report.get_data_report_topowner_per_quarter(year, quarters_to_months(quarter), get_type(type))
-    title = 'Top owner {} {} {}'.format(type ,year, quarter.upper())
-    return render_template('top_owners.htm', title=title, data=data)
+    title = 'Top contributor {} {} {}'.format(type ,year, quarter.upper())
+    return render_template('top_contributor.htm', title=title, data=data)

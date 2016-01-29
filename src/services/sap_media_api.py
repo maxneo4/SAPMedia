@@ -36,7 +36,7 @@ def get_report_videos_per_year(year):
         raise
 
 
-@app.route('/reports/top_owner/<type>/<year>/per_quarter/<quarter>')
+@app.route('/reports/top_contributor/<type>/<year>/per_quarter/<quarter>')
 def get_report_topowner_per_quarter(type, year, quarter):
     try:
         return report_per_period.generate_report_byquarter(year, quarter, type)
