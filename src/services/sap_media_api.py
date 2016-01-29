@@ -4,6 +4,7 @@ import sys
 from max_dev import maxrest
 from reports.publications.articles import report_per_year as report_year_articles
 from reports.publications.videos import  report_per_year as report_year_videos
+from reports.top_owner import report_per_period
 
 app = Flask(__name__)
 
@@ -30,6 +31,15 @@ def get_report_articles_per_year(year):
 def get_report_videos_per_year(year):
     try:
         return report_year_videos.generate_report(year)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/top_owner/<type>/<year>/per_quarter/<quarter>')
+def get_report_topowner_per_quarter(type, year, quarter):
+    try:
+        return report_per_period.generate_report_byquarter(year, quarter, type)
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise

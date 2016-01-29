@@ -1,5 +1,6 @@
 import unittest
 from reports.publications.articles import report_per_year
+from reports.top_owner import data_report
 from max_dev import maxarray
 from max_dev import root_path
 
@@ -10,6 +11,10 @@ class HtmlGenerator(unittest.TestCase):
 
     def test_generation_report(self):
         data = report_per_year.get_transformed_data(2015)
+        print data
+
+    def test_generation_report_quarter(self):
+        data = data_report.get_data_report_topowner_per_quarter(2015, "'01','02','03'", "'article'")
         print data
 
     def test_sum_columns(self):
