@@ -43,3 +43,21 @@ def get_report_topowner_per_quarter(type, year, quarter):
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
+
+
+@app.route('/reports/top_contributor/<type>/<year>/per_month/<month>')
+def get_report_topowner_per_month(type, year, month):
+    try:
+        return report_per_period.generate_report_bymonth(year, month, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/top_contributor/<type>/<year>')
+def get_report_topowner_per_year(type, year):
+    try:
+        return report_per_period.generate_report_byyear(year, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
