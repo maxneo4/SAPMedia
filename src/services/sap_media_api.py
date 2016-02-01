@@ -4,7 +4,8 @@ import sys
 from max_dev import maxrest
 from reports.publications.articles import report_per_year as report_year_articles
 from reports.publications.videos import  report_per_year as report_year_videos
-from reports.top_owner import report_per_period
+from reports.top_owner import report_per_period as report_top_owner
+from reports.number_views import  report_per_period as report_number_views
 
 app = Flask(__name__)
 
@@ -39,7 +40,7 @@ def get_report_videos_per_year(year):
 @app.route('/reports/top_contributor/<type>/<year>/per_quarter/<quarter>')
 def get_report_topowner_per_quarter(type, year, quarter):
     try:
-        return report_per_period.generate_report_byquarter(year, quarter, type)
+        return report_top_owner.generate_report_byquarter(year, quarter, type)
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
@@ -48,7 +49,7 @@ def get_report_topowner_per_quarter(type, year, quarter):
 @app.route('/reports/top_contributor/<type>/<year>/per_month/<month>')
 def get_report_topowner_per_month(type, year, month):
     try:
-        return report_per_period.generate_report_bymonth(year, month, type)
+        return report_top_owner.generate_report_bymonth(year, month, type)
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
@@ -57,7 +58,34 @@ def get_report_topowner_per_month(type, year, month):
 @app.route('/reports/top_contributor/<type>/<year>')
 def get_report_topowner_per_year(type, year):
     try:
-        return report_per_period.generate_report_byyear(year, type)
+        return report_top_owner.generate_report_byyear(year, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+#Number of views
+@app.route('/reports/number_views/<type>/<year>/per_quarter/<quarter>')
+def get_report_number_views_per_quarter(type, year, quarter):
+    try:
+        return report_number_views.generate_report_byquarter(year, quarter, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/number_views/<type>/<year>/per_month/<month>')
+def get_report_number_views_per_month(type, year, month):
+    try:
+        return report_number_views.generate_report_bymonth(year, month, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/number_views/<type>/<year>')
+def get_report_number_views_per_year(type, year):
+    try:
+        return report_number_views.generate_report_byyear(year, type)
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise

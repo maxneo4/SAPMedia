@@ -6,6 +6,13 @@ def sum_positions(array, positions):
     return sum_value
 
 
+def sum_all_positions(array):
+    sum_value = 0
+    for current_value in array:
+        sum_value += current_value
+    return sum_value
+
+
 def sum_total_columns(matrix, axis_columns):
     arr_total = [0]*len(axis_columns)
     for row in matrix:
