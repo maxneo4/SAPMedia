@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import metrics_importation
 import sys
 from max_dev import maxrest
@@ -18,7 +18,27 @@ def sync_excel_with_data_base():
 
 @app.route('/')
 def home():
-    return 'HOME'
+    return render_template('selector_report.html')
+
+@app.route('/selector_year.html')
+def select_year():
+    return render_template('selector_year.html')
+
+@app.route('/selector_year_intermediate.html')
+def select_year_intermediate():
+    return render_template('selector_year_intermediate.html')
+
+@app.route('/selector_period.html')
+def select_period():
+    return render_template('selector_period.html')
+
+@app.route('/selector_quarter.html')
+def select_quarter():
+    return render_template('selector_quarter.html')
+
+@app.route('/selector_month.html')
+def select_month():
+    return render_template('selector_month.html')
 
 @app.route('/reports/publications/articles/per_year/<year>')
 def get_report_articles_per_year(year):
