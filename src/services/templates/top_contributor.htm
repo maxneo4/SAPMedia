@@ -364,56 +364,13 @@
   <td class=xl6830534>Owner</td>
   <td class=xl6930534>Total</td>
  </tr>
- <tr height=20 style='height:15.0pt'>
-  <td height=20 class=xl7030534 style='height:15.0pt'>1</td>
-  <td class=xl7130534>{{ data[0][0].decode('utf-8') }}</td>
-  <td class=xl7630534>{{ data[0][1] }}</td>
- </tr>
-	<tr height=20 style='height:15.0pt'>
-		<td height=20 class=xl7030534 style='height:15.0pt'>2</td>
-		<td class=xl7130534>{{ data[1][0].decode('utf-8') }}</td>
-		<td class=xl7630534>{{ data[1][1] }}</td>
-	</tr>
-	<tr height=20 style='height:15.0pt'>
-		<td height=20 class=xl7030534 style='height:15.0pt'>3</td>
-		<td class=xl7130534>{{ data[2][0].decode('utf-8') }}</td>
-		<td class=xl7630534>{{ data[2][1] }}</td>
-	</tr>
-	<tr height=20 style='height:15.0pt'>
-		<td height=20 class=xl7030534 style='height:15.0pt'>4</td>
-		<td class=xl7130534>{{ data[3][0].decode('utf-8') }}</td>
-		<td class=xl7630534>{{ data[3][1] }}</td>
-	</tr>
-	<tr height=20 style='height:15.0pt'>
-		<td height=20 class=xl7030534 style='height:15.0pt'>5</td>
-		<td class=xl7130534>{{ data[4][0].decode('utf-8') }}</td>
-		<td class=xl7630534>{{ data[4][1] }}</td>
-	</tr>
-	<tr height=20 style='height:15.0pt'>
-		<td height=20 class=xl7430534 style='height:15.0pt'>6</td>
-		<td class=xl7230534>{{ data[5][0].decode('utf-8') }}</td>
-		<td class=xl7730534>{{ data[5][1] }}</td>
-	</tr>
-	<tr height=20 style='height:15.0pt'>
-		<td height=20 class=xl7430534 style='height:15.0pt'>7</td>
-		<td class=xl7230534>{{ data[6][0].decode('utf-8') }}</td>
-		<td class=xl7730534>{{ data[6][1] }}</td>
-	</tr>
-	<tr height=20 style='height:15.0pt'>
-		<td height=20 class=xl7430534 style='height:15.0pt'>8</td>
-		<td class=xl7230534>{{ data[7][0].decode('utf-8') }}</td>
-		<td class=xl7730534>{{ data[7][1] }}</td>
-	</tr>
-	<tr height=20 style='height:15.0pt'>
-		<td height=20 class=xl7430534 style='height:15.0pt'>9</td>
-		<td class=xl7230534>{{ data[8][0].decode('utf-8') }}</td>
-		<td class=xl7730534>{{ data[8][1] }}</td>
-	</tr>
-	<tr height=21 style='height:15.75pt'>
-		<td height=21 class=xl7530534 style='height:15.75pt'>10</td>
-		<td class=xl7330534>{{ data[9][0].decode('utf-8') }}</td>
-		<td class=xl7830534>{{ data[9][1] }}</td>
- </tr>
+	{% for row in data %}
+ 	<tr height=20 style='height:15.0pt'>
+	  <td height=20 class={% if loop.index < 6 %}xl7030534{% else %}xl7530534{% endif %} style='height:15.0pt'>{{loop.index}}</td>
+	  <td class={% if loop.index < 6 %}xl7030534{% else %}xl7530534{% endif %}>{{ row[0].decode('utf-8') }}</td>
+	  <td class={% if loop.index < 6 %}xl7030534{% else %}xl7530534{% endif %}>{{ row[1] }}</td>
+ 	</tr>
+	{% endfor %}
 </table>
 
 </div>
