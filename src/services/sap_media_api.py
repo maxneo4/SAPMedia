@@ -6,6 +6,7 @@ from reports.publications.articles import report_per_year as report_year_article
 from reports.publications.videos import  report_per_year as report_year_videos
 from reports.top_owner import report_per_period as report_top_owner
 from reports.number_views import  report_per_period as report_number_views
+from reports.infographic_publications import  report_per_period as report_infographic_publications
 
 app = Flask(__name__)
 
@@ -93,6 +94,33 @@ def get_report_number_views_per_month(type, year, month):
 def get_report_number_views_per_year(type, year):
     try:
         return report_number_views.generate_report_byyear(year, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+#Infographic publications
+@app.route('/reports/infographic_publications/<year>/per_quarter/<quarter>')
+def get_report_infographic_publications_per_quarter(year, quarter):
+    try:
+        return report_infographic_publications.generate_report_byquarter(year, quarter)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/infographic_publications/<year>/per_month/<month>')
+def get_report_infographic_publications_per_month(year, month):
+    try:
+        return report_infographic_publications.generate_report_bymonth(year, month)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/infographic_publications/<year>')
+def get_report_infographic_publications_per_year(year):
+    try:
+        return report_infographic_publications.generate_report_byyear(year)
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
