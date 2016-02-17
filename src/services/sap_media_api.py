@@ -1,7 +1,7 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, request
 import metrics_importation
 import sys
-from max_dev import maxrest
+from max_dev import maxrest, root_path
 from reports.publications.articles import report_per_year as report_year_articles
 from reports.publications.videos import  report_per_year as report_year_videos
 from reports.top_owner import report_per_period as report_top_owner
@@ -21,12 +21,13 @@ def sync_excel_with_data_base():
 
 @app.route('/')
 def home():
-    return send_from_directory('selectors','selector_report.html')
+    return app.send_static_file('selector_report.html')
 
 
 @app.route('/<path:path>')
 def selector(path):
-    return send_from_directory('selectors', path)
+    print path
+    return app.send_static_file(path)
 
 
 @app.route('/reports/publications/articles/per_year/<year>')
