@@ -7,6 +7,7 @@ def quarters_to_months(quarter):
     }
     return switcher.get(quarter, "nothing")
 
+
 def get_type(path):
     switcher = {
         "articles": "'article'",
@@ -14,3 +15,7 @@ def get_type(path):
         "all": "'article','video'",
         }
     return switcher.get(path, "nothing")
+
+
+def get_all_months():
+    return "'01','02','03','04','05','05','07','08','09','10','11','12'"

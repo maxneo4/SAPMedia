@@ -7,6 +7,7 @@ from reports.publications.videos import  report_per_year as report_year_videos
 from reports.top_owner import report_per_period as report_top_owner
 from reports.number_views import  report_per_period as report_number_views
 from reports.infographic_publications import  report_per_period as report_infographic_publications
+from reports.top_report import report_per_period as report_top
 
 app = Flask(__name__)
 
@@ -121,6 +122,42 @@ def get_report_infographic_publications_per_month(year, month):
 def get_report_infographic_publications_per_year(year):
     try:
         return report_infographic_publications.generate_report_byyear(year)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+#top reports
+@app.route('/reports/top/<target>/<type>/<year>/per_quarter/<quarter>')
+def get_report_top_per_quarter(target, type, year, quarter):
+    try:
+        if target == 'viewed':
+            return report_top.generate_reportTopViewed_byquarter(year, quarter, type)
+        if target == 'commented':
+            return report_top.generate_reportTopCommented_byquarter(year, quarter, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/top/<target>/<type>/<year>/per_month/<month>')
+def get_report_top_per_month(target, type, year, month):
+    try:
+        if target == 'viewed':
+            return report_top.generate_reportTopViewed_bymonth(year, month, type)
+        if target == 'commented':
+            return report_top.generate_reportTopCommented_bymonth(year, month, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/top/<target>/<type>/<year>')
+def get_report_top_per_year(target, type, year):
+    try:
+        if target == 'viewed':
+            return report_top.generate_reportTopViewed_byyear(year, type)
+        if target == 'commented':
+            return report_top.generate_reportTopCommented_byyear(year, type)
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
