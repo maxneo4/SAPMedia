@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Regions report</title>
+    <style>
+        .title
+        {
+            text-align:center;
+            color:white;
+            font-size:14.0pt;
+            font-weight:700;
+            background:black;
+            height:35pt;
+        }
+        .header
+        {
+            padding-left:1px;
+            background:#FFC000;
+            height:20pt;
+        }
+        .tdWithBorder
+        {
+            border: thin solid;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content" align=center>
+
+    <table border=0 cellpadding=0 cellspacing=0 width=280>
+    <col width=40>
+    <col width=40>
+    <col width=40>
+
+    <tr>
+        <td colspan="3" class="title">{{ title }}</td>
+    </tr>
+
+    <tr class="header">
+        <td>Region</td>
+        <td>Percent</td>
+        <td>Total</td>
+    </tr>
+    {% for row in data %}
+    <tr>
+        <td class="tdWithBorder">{{ row[0] }}</td>
+        <td class="tdWithBorder">{{ row[1] }}</td>
+        <td class="tdWithBorder">{{ row[2] }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+
+    </div>
+
+</body>
+</html>

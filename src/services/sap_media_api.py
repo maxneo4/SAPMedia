@@ -8,6 +8,7 @@ from reports.top_owner import report_per_period as report_top_owner
 from reports.number_views import  report_per_period as report_number_views
 from reports.infographic_publications import  report_per_period as report_infographic_publications
 from reports.top_report import report_per_period as report_top
+from reports.regions_report import report_per_period as report_regions
 
 app = Flask(__name__)
 
@@ -159,6 +160,34 @@ def get_report_top_per_year(target, type, year):
             return report_top.generate_reportTopViewed_byyear(year, type)
         if target == 'commented':
             return report_top.generate_reportTopCommented_byyear(year, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+#regions
+@app.route('/reports/regions/<type>/<year>/per_quarter/<quarter>')
+def get_report_regions_per_quarter(type, year, quarter):
+    try:
+        return report_regions.generate_report_byquarter(year, quarter, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/regions/<type>/<year>/per_month/<month>')
+def get_report_regions_per_month(type, year, month):
+    try:
+        return report_regions.generate_report_bymonth(year, month, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/regions/<type>/<year>')
+def get_report_regions_per_year(type, year):
+    try:
+        return report_regions.generate_report_byyear(year, type)
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise

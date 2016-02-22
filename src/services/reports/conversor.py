@@ -19,3 +19,7 @@ def get_type(path):
 
 def get_all_months():
     return "'01','02','03','04','05','05','07','08','09','10','11','12'"
+
+
+def get_inmonth(month):
+    return "'"+month+"'"
