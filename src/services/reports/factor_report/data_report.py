@@ -22,9 +22,9 @@ def column_from_factor(factor):
 
 def get_data_report_regions(year, months, types, factor):
     return get_data(resolve_path('Metrics.db3') ,"""
-    select {}, sum(total) as total
-    from {}
-    where year = '{}' and month in ({})  and type in ({})
-    group by region
+    select {0}, sum(total) as total
+    from {1}
+    where year = '{2}' and month in ({3})  and type in ({4})
+    group by {0}
     order by total DESC
     """.format(column_from_factor(factor), table_from_factor(factor), year, months, types), ())
