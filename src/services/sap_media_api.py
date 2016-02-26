@@ -218,3 +218,30 @@ def get_report_gca_per_year(type, year):
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
+
+#board_area
+@app.route('/reports/board_area/<type>/<year>/per_quarter/<quarter>')
+def get_report_area_per_quarter(type, year, quarter):
+    try:
+        return report_factors.generate_report_byquarter('BoardArea', year, quarter, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/board_area/<type>/<year>/per_month/<month>')
+def get_report_area_per_month(type, year, month):
+    try:
+        return report_factors.generate_report_bymonth('BoardArea', year, month, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/board_area/<type>/<year>')
+def get_report_area_per_year(type, year):
+    try:
+        return report_factors.generate_report_byyear('BoardArea', year, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
