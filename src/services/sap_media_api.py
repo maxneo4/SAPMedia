@@ -245,3 +245,30 @@ def get_report_area_per_year(type, year):
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
+
+#customer yes no
+@app.route('/reports/customerYN/<type>/<year>/per_quarter/<quarter>')
+def get_report_customeryn_per_quarter(type, year, quarter):
+    try:
+        return report_factors.generate_report_byquarter('CustomerYN', year, quarter, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/customerYN/<type>/<year>/per_month/<month>')
+def get_report_customeryn_per_month(type, year, month):
+    try:
+        return report_factors.generate_report_bymonth('CustomerYN', year, month, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
+
+
+@app.route('/reports/customerYN/<type>/<year>')
+def get_report_customeryn_per_year(type, year):
+    try:
+        return report_factors.generate_report_byyear('CustomerYN', year, type)
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+        raise
