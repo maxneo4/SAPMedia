@@ -14,6 +14,7 @@ def get_data(database, query, params):
         print "Unexpected error:", sys.exc_info()[0]
         raise
 
+
 def update_data(database, query, params):
     try:
         connection = sqlite3.connect(database)

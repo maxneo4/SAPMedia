@@ -12,11 +12,12 @@ from reports.factor_report import report_per_period as report_factors
 
 app = Flask(__name__)
 
-@app.route('/excel/import', methods=['POST'])
-def sync_excel_with_data_base():
+
+@app.route('/excel/import/<year>', methods=['POST'])
+def sync_excel_with_data_base(year):
     file_path = request.json['file_path']
-    metrics_importation.import_articles(file_path)
-    metrics_importation.import_videos(file_path)
+    metrics_importation.import_articles(file_path, year)
+    metrics_importation.import_videos(file_path, year)
     return maxrest.build_json_response({'success':True},200)
 
 
