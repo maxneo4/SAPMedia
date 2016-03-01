@@ -6,7 +6,8 @@ def table_from_factor(factor):
     switcher = {
         "Region": "RegionPublications",
         "Needle": "MoveTheNeedlePublications",
-        "BoardArea": "BoardAreaPublications"
+        "BoardArea": "BoardAreaPublications",
+        "CustomerYN": "CustomerYesNoPublications"
     }
     return switcher.get(factor, "nothing")
 
@@ -15,7 +16,8 @@ def column_from_factor(factor):
     switcher = {
         "Region": "region",
         "Needle": "gca",
-        "BoardArea": "board_area"
+        "BoardArea": "board_area",
+        "CustomerYN": "customer"
     }
     return switcher.get(factor, "nothing")
 
