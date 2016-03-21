@@ -1,240 +1,10 @@
-<html>
-<head>
-	<style id="report articles">
-		<!--table
-            {
-            border-collapse: collapse; border-color=black; }
-            tr { border: none; }
-            td {
-              border-right: solid 1px #000;
-              border-left: solid 1px #000;
-            }
-        .months_and_headers
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:11.0pt;
-            font-weight:400;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:General;
-            text-align:general;
-            vertical-align:bottom;
-            mso-background-source:auto;
-            mso-pattern:auto;
-            white-space:nowrap;}
-        .months_data
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:11.0pt;
-            font-weight:400;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:0;
-            text-align:general;
-            vertical-align:bottom;
-            mso-background-source:auto;
-            mso-pattern:auto;
-            white-space:nowrap;}
-        .total_row
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:11.0pt;
-            font-weight:700;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:General;
-            text-align:general;
-            vertical-align:bottom;
-            background:#FFC000;
-            mso-pattern:black none;
-            white-space:nowrap;}
-        .total_data
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:11.0pt;
-            font-weight:700;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:0;
-            text-align:general;
-            vertical-align:bottom;
-            background:#FFC000;
-            mso-pattern:black none;
-            white-space:nowrap;}
-        .quarter_label
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:14.0pt;
-            font-weight:700;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:General;
-            text-align:center;
-            vertical-align:bottom;
-            background:#FFC000;
-            mso-pattern:black none;
-            white-space:nowrap;}
-        .quarter1_data
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:11.0pt;
-            font-weight:400;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:0;
-            text-align:general;
-            vertical-align:bottom;
-            background:#FFF2CC;
-            mso-pattern:black none;
-            white-space:nowrap;}
-        .quarter2_data
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:11.0pt;
-            font-weight:400;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:0;
-            text-align:general;
-            vertical-align:bottom;
-            background:#FFE699;
-            mso-pattern:black none;
-            white-space:nowrap;}
-        .quarter3_data
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:11.0pt;
-            font-weight:400;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:0;
-            text-align:general;
-            vertical-align:bottom;
-            background:#FFD966;
-            mso-pattern:black none;
-            white-space:nowrap;}
-        .quarter4_data
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:11.0pt;
-            font-weight:400;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:0;
-            text-align:general;
-            vertical-align:bottom;
-            background:#FFC000;
-            mso-pattern:black none;
-            white-space:nowrap;}
-        .brands
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:white;
-            font-size:12.0pt;
-            font-weight:700;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:General;
-            text-align:center;
-            vertical-align:middle;
-            background:#0D0D0D;
-            mso-pattern:black none;
-            white-space:normal;}
-        .report_title
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:black;
-            font-size:16.0pt;
-            font-weight:700;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:General;
-            text-align:center;
-            vertical-align:bottom;
-            background:#FFC000;
-            mso-pattern:black none;
-            white-space:nowrap;}
-        .brands_down
-            {padding-top:1px;
-            padding-right:1px;
-            padding-left:1px;
-            mso-ignore:padding;
-            color:white;
-            font-size:12.0pt;
-            font-weight:700;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:General;
-            text-align:center;
-            vertical-align:bottom;
-            background:#0D0D0D;
-            mso-pattern:black none;
-            white-space:nowrap;}
-        -->
-	</style>
-</head>
+{% extends "layout.html" %}
 
-<body>
+{% block title %}Videos per year{% endblock %}
 
-<div id="body report" align=center>
+{% block body %}
 
-	<table border=0 cellpadding=0 cellspacing=0 width='80%' style='border-collapse:
- collapse;table-layout:fixed;width:1024pt'>
+	<table border=0 cellpadding=0 cellspacing=0 class="striped highlight centered">
         <col width=76 style='width:40pt'>
 		<col width=76 span=6 style='width:57pt'>
 		<col width=131 style='mso-width-source:userset;mso-width-alt:4790;width:60pt'>
@@ -244,104 +14,104 @@
 		<col width=79 style='mso-width-source:userset;mso-width-alt:2889;width:59pt'>
 		<col width=76 span=6 style='width:57pt'>
 		<tr height=28 style='height:21.0pt'>
-			<td height=28 class=report_title width=38 style='height:21.0pt;width:29pt'>&nbsp;</td>
-			<td colspan=9 class=report_title width=696 style='width:523pt'>{{ transformed_data.title }}</td>
-			<td class=report_title width=76 style='width:57pt'>&nbsp;</td>
-			<td class=report_title width=108 style='width:81pt'>&nbsp;</td>
+			<td height=28 class="yellow darken-3" width=38 style='height:21.0pt;width:29pt'>&nbsp;</td>
+			<td colspan=9 class="title yellow darken-3" width=696 style='width:523pt'>{{ transformed_data.title }}</td>
+			<td class="yellow darken-3" width=76 style='width:57pt'>&nbsp;</td>
+			<td class="yellow darken-3" width=108 style='width:81pt'>&nbsp;</td>
 		</tr>
 		<tr height=42 style='mso-height-source:userset;height:31.5pt'>
-			<td height=42 class=brands style='height:31.5pt'>&nbsp;</td>
-			<td colspan=2 class=brands_down width=152 style='width:114pt'>Corporate Portal</td>
-			<td colspan=2 class=brands_down>News Center</td>
-			<td class=brands_down>SAP TV</td>
-			<td colspan=2 class=brands_down>Youtube</td>
-			<td colspan=2 class=brands_down>Twitter @SAPtv</td>
-			<td rowspan=2 class=brands width=76 style='width:57pt'>Total Views</td>
-			<td rowspan=2 class=brands width=108 style='width:81pt'>Total Comments</td>
+			<td height=42 class="grey darken-4" style='height:31.5pt'>&nbsp;</td>
+			<td colspan=2 class="whiteBoldForeground grey darken-4" width=152 style='width:114pt'>Corporate Portal</td>
+			<td colspan=2 class="whiteBoldForeground grey darken-4">News Center</td>
+			<td class="whiteBoldForeground grey darken-4">SAP TV</td>
+			<td colspan=2 class="whiteBoldForeground grey darken-4">Youtube</td>
+			<td colspan=2 class="whiteBoldForeground grey darken-4">Twitter @SAPtv</td>
+			<td rowspan=2 class="whiteBoldForeground grey darken-4" width=76 style='width:57pt'>Total Views</td>
+			<td rowspan=2 class="whiteBoldForeground grey darken-4" width=108 style='width:81pt'>Total Comments</td>
 		</tr>
 		<tr height=31 style='height:23.25pt'>
-			<td height=31 class=months_and_headers style='height:23.25pt'>Month</td>
-			<td class=months_and_headers>Views</td>
-			<td class=months_and_headers style='border-left:none'>Comments</td>
-			<td class=months_and_headers style='border-left:none'>Views</td>
-			<td class=months_and_headers style='border-left:none'>Comments</td>
-			<td class=months_and_headers style='border-left:none'>Views</td>
-			<td class=months_and_headers style='border-left:none'>Views</td>
-			<td class=months_and_headers style='border-left:none'>Comments</td>
-			<td class=months_and_headers style='border-left:none'>Impressions</td>
-			<td class=months_and_headers style='border-left:none'>Engagement</td>
+			<td height=31 class="bold yellow darken-3" style='height:23.25pt'>Month</td>
+			<td class="bold yellow darken-3">Views</td>
+			<td class="bold yellow darken-3" style='border-left:none'>Comments</td>
+			<td class="bold yellow darken-3" style='border-left:none'>Views</td>
+			<td class="bold yellow darken-3" style='border-left:none'>Comments</td>
+			<td class="bold yellow darken-3" style='border-left:none'>Views</td>
+			<td class="bold yellow darken-3" style='border-left:none'>Views</td>
+			<td class="bold yellow darken-3" style='border-left:none'>Comments</td>
+			<td class="bold yellow darken-3" style='border-left:none'>Impressions</td>
+			<td class="bold yellow darken-3" style='border-left:none'>Engagement</td>
 		</tr>
 
         {% for row in transformed_data.matrix_months %}
         <tr height=20 style='height:15.0pt'>
-            <td height=20 class=months_and_headers style='height:15.0pt'>{{ row[0] }}</td>
+            <td height=20 class="bold yellow darken-3" style='height:15.0pt'>{{ row[0] }}</td>
             {% for item in row %}
             {% if not loop.first %}
-            <td class=months_data align=right>{{ '{:,.15g}'.format(item) }}</td>
+            <td class="rowData" align=right>{{ '{:,.15g}'.format(item) }}</td>
             {% endif %}
             {% endfor %}
         </tr>
         {% endfor %}
 
         <tr height=20 style='height:15.0pt'>
-            <td height=20 class=total_row style='height:15.0pt'>Total</td>
+            <td height=20 class="bold yellow darken-3" style='height:15.0pt'>Total</td>
             {% for item in transformed_data.quarter1_total %}
-            <td class=total_data align=right>{{ '{:,.15g}'.format(item) }}</td>
+            <td class="bold yellow darken-3" align=right>{{ '{:,.15g}'.format(item) }}</td>
             {% endfor %}
         </tr>
 
 		<tr height=20 style='height:15.0pt'>
-			<td height=20 class=months_and_headers style='height:15.0pt'></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-            <td class=months_and_headers></td>
+			<td height=20 class="bold " style='height:15.0pt'></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+            <td class="bold "></td>
 		</tr>
 		<tr height=20 style='height:15.0pt'>
-			<td height=20 class=months_and_headers style='height:15.0pt'></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-			<td class=months_and_headers></td>
-            <td class=months_and_headers></td>
+			<td height=20 class="bold " style='height:15.0pt'></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+			<td class="bold "></td>
+            <td class="bold "></td>
 		</tr>
 
         <tr height=25 style='height:18.75pt'>
-            <td height=25 class=quarter_label style='height:18.75pt'>Q1</td>
+            <td height=25 class="bold yellow darken-3" style='height:18.75pt'>Q1</td>
             {% for item in transformed_data.quarter1_total %}
             <td class=quarter1_data align=right>{{ '{:,.15g}'.format(item) }}</td>
             {% endfor %}
         </tr>
 
         <tr height=25 style='height:18.75pt'>
-            <td height=25 class=quarter_label style='height:18.75pt'>Q2</td>
+            <td height=25 class="bold yellow darken-3" style='height:18.75pt'>Q2</td>
             {% for item in transformed_data.quarter2_total %}
             <td class=quarter2_data align=right>{{ '{:,.15g}'.format(item) }}</td>
             {% endfor %}
         </tr>
 
         <tr height=25 style='height:18.75pt'>
-            <td height=25 class=quarter_label style='height:18.75pt'>Q3</td>
+            <td height=25 class="bold yellow darken-3" style='height:18.75pt'>Q3</td>
             {% for item in transformed_data.quarter3_total %}
             <td class=quarter3_data align=right>{{ '{:,.15g}'.format(item) }}</td>
             {% endfor %}
         </tr>
 
         <tr height=25 style='height:18.75pt'>
-            <td height=25 class=quarter_label style='height:18.75pt'>Q4</td>
+            <td height=25 class="bold yellow darken-3" style='height:18.75pt'>Q4</td>
             {% for item in transformed_data.quarter4_total %}
             <td class=quarter4_data align=right>{{ '{:,.15g}'.format(item) }}</td>
             {% endfor %}
@@ -349,8 +119,4 @@
 
 	</table>
 
-</div>
-
-</body>
-
-</html>
+{% endblock %}

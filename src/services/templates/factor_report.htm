@@ -1,57 +1,30 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Regions report</title>
-    <style>
-        .title
-        {
-            text-align:center;
-            color:white;
-            font-size:14.0pt;
-            font-weight:700;
-            background:black;
-            height:35pt;
-        }
-        .header
-        {
-            padding-left:1px;
-            background:#FFC000;
-            height:20pt;
-        }
-        .tdWithBorder
-        {
-            border: thin solid;
-        }
-    </style>
-</head>
-<body>
+{% extends "layout.html" %}
 
-    <div id="content" align=center>
+{% block title %} {{title}} {% endblock %}
 
-    <table border=0 cellpadding=0 cellspacing=0 width=280>
+{% block body %}
+
+    <table border=0 cellpadding=0 cellspacing=0 class="striped highlight centered"  width=280 style="width:340pt">
     <col width=40>
     <col width=40>
     <col width=40>
 
     <tr>
-        <td colspan="3" class="title">{{ title }}</td>
+        <td colspan="3" class="title yellow darken-3">{{ title }}</td>
     </tr>
 
-    <tr class="header">
+    <tr class="whiteBoldForeground grey darken-4">
         <td>{{ factor }}</td>
         <td>Percent</td>
         <td>Total</td>
     </tr>
     {% for row in data %}
     <tr>
-        <td class="tdWithBorder">{{ row[0] }}</td>
-        <td class="tdWithBorder">{{ row[1] }}</td>
-        <td class="tdWithBorder">{{ row[2] }}</td>
+        <td class="tdWithBorder rowData">{{ row[0] }}</td>
+        <td class="tdWithBorder rowData">{{ row[1] }}</td>
+        <td class="tdWithBorder rowData">{{ row[2] }}</td>
     </tr>
     {% endfor %}
     </table>
 
-    </div>
-
-</body>
-</html>
+{% endblock %}
