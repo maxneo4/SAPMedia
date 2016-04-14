@@ -194,16 +194,16 @@ def get_report_regions_per_year(type, year):
         raise
 
 #Move the needle
-@app.route('/reports/move_the_needle/<type>/<year>/per_quarter/<quarter>')
+@app.route('/reports/high_value_themes/<type>/<year>/per_quarter/<quarter>')
 def get_report_gca_per_quarter(type, year, quarter):
     try:
-        return report_factors.generate_report_byquarter('Needle', year, quarter, type)
+        return report_factors.generate_report_byquarter('High Value Themes', year, quarter, type)
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
 
 
-@app.route('/reports/move_the_needle/<type>/<year>/per_month/<month>')
+@app.route('/reports/high_value_themes/<type>/<year>/per_month/<month>')
 def get_report_gca_per_month(type, year, month):
     try:
         return report_factors.generate_report_bymonth('Needle', year, month, type)
@@ -212,7 +212,7 @@ def get_report_gca_per_month(type, year, month):
         raise
 
 
-@app.route('/reports/move_the_needle/<type>/<year>')
+@app.route('/reports/high_value_themes/<type>/<year>')
 def get_report_gca_per_year(type, year):
     try:
         return report_factors.generate_report_byyear('Needle', year, type)
