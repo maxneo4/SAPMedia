@@ -1,7 +1,5 @@
-from flask import Flask, request
-import metrics_importation
+from flask import Flask
 import sys
-from max_dev import maxrest
 from reports.publications.articles import report_per_year as report_year_articles
 from reports.publications.videos import  report_per_year as report_year_videos
 from reports.top_owner import report_per_period as report_top_owner
@@ -10,15 +8,12 @@ from reports.infographic_publications import  report_per_period as report_infogr
 from reports.top_report import report_per_period as report_top
 from reports.factor_report import report_per_period as report_factors
 
+from uploadExcel import upload_api
+
 app = Flask(__name__)
-
-
-@app.route('/excel/import/<year>', methods=['POST'])
-def sync_excel_with_data_base(year):
-    file_path = request.json['file_path']
-    metrics_importation.import_articles(file_path, year)
-    metrics_importation.import_videos(file_path, year)
-    return maxrest.build_json_response({'success':True},200)
+app.config['UPLOAD_FOLDER'] = 'uploads/'
+app.config['ALLOWED_EXTENSIONS'] = set(['xlsx', 'xlsm'])
+app.register_blueprint(upload_api)
 
 
 @app.route('/')
@@ -39,6 +34,7 @@ def get_report_articles_per_year(year):
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
+
 
 @app.route('/reports/publications/videos/per_year/<year>')
 def get_report_videos_per_year(year):
@@ -102,6 +98,7 @@ def get_report_number_views_per_year(type, year):
         print "Unexpected error:", sys.exc_info()[0]
         raise
 
+
 #Infographic publications
 @app.route('/reports/infographic_publications/<year>/per_quarter/<quarter>')
 def get_report_infographic_publications_per_quarter(year, quarter):
@@ -128,6 +125,7 @@ def get_report_infographic_publications_per_year(year):
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
+
 
 #top reports
 @app.route('/reports/top/<target>/<type>/<year>/per_quarter/<quarter>')
@@ -193,6 +191,7 @@ def get_report_regions_per_year(type, year):
         print "Unexpected error:", sys.exc_info()[0]
         raise
 
+
 #Move the needle
 @app.route('/reports/high_value_themes/<type>/<year>/per_quarter/<quarter>')
 def get_report_gca_per_quarter(type, year, quarter):
@@ -246,6 +245,7 @@ def get_report_area_per_year(type, year):
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise
+
 
 #customer yes no
 @app.route('/reports/customerYN/<type>/<year>/per_quarter/<quarter>')

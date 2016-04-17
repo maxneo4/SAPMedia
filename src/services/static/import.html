@@ -7,43 +7,16 @@
 </head>
 <body>
 
-    <script language="JavaScript">
-
-        function import_excel(event)
-        {
-            importb.disabled = true;
-            url = "/excel/import/"+year.value;
-            $.ajax
-            ({
-                type: "POST",
-                url: url,
-                dataType: "json",
-                contentType: 'application/json',
-                async: false,
-                data: JSON.stringify({ file_path: file_path.value }),
-                success: function () {
-                    alert("File imported!");
-                    importb.disabled = false;
-                },
-                error: function() {
-                    alert("Error has ocurred!");
-                    importb.disabled = false;
-                }
-            })
-        }
-
-    </script>
-
-
-        <input type="text" size="70" id="file_path" placeholder="Excel path...">
-        <select id="year">
+    <form action="upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"><br /><br />
+        <select name="year">
             <option value="2015">2015</option>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>
         </select>
-        <input type="button" id="importb" value="Import" onclick="import_excel(event);" />
-
+        <input type="submit" value="Upload">
+    </form>
 
 </body>
 </html>
