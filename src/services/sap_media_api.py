@@ -7,6 +7,7 @@ from reports.number_views import  report_per_period as report_number_views
 from reports.infographic_publications import  report_per_period as report_infographic_publications
 from reports.top_report import report_per_period as report_top
 from reports.factor_report import report_per_period as report_factors
+from max_dev import root_path
 
 from uploadExcel import upload_api
 
@@ -15,6 +16,7 @@ app.config['UPLOAD_FOLDER'] = 'uploads/'
 app.config['ALLOWED_EXTENSIONS'] = set(['xlsx', 'xlsm'])
 app.register_blueprint(upload_api)
 
+root_path.set_root_path_from(__file__)
 
 @app.route('/')
 def home():
@@ -31,8 +33,8 @@ def selector(path):
 def get_report_articles_per_year(year):
     try:
         return report_year_articles.generate_report(year)
-    except:
-        print "Unexpected error:", sys.exc_info()[0]
+    except Exception, err:
+        print str(err)
         raise
 
 

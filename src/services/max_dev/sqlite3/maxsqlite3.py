@@ -10,8 +10,8 @@ def get_data(database, query, params):
         data = cursor.fetchall()
         connection.close()
         return data
-    except:
-        print "Unexpected error:", sys.exc_info()[0]
+    except sqlite3.DatabaseError, err:
+        print " error: "+str(err)+'-', sys.exc_info()
         raise
 
 
@@ -22,12 +22,12 @@ def update_data(database, query, params):
         cursor.execute(query, params)
         connection.commit()
         connection.close()
-    except:
-        print "Unexpected error:", sys.exc_info()[0]
+    except sqlite3.DatabaseError, err:
+        print " error:"+ str(err)+ '-', sys.exc_info()
         raise
 
 
-def executemany_in_database(database, insert_query ,matrix_data):
+def executemany_in_database(database, insert_query, matrix_data):
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
     cursor.executemany(insert_query, matrix_data)
