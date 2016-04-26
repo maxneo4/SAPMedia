@@ -6,4 +6,10 @@
     <orderEntry type="jdk" jdkName="Python 2.7.10 virtualenv at D:\GitHub\SAPMedia\src\vpyenv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="D:\GitHub\SAPMedia\src\services\requirements.txt" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+  </component>
 </module>
