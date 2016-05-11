@@ -28,10 +28,24 @@
 
 <div class="container center-align grey lighten-5">
 
-    <div class="row"><a class="waves-effect waves-light btn yellow darken-3" onclick="send_to_report(2015)">2015</a></div>
-    <div class="row"><a class="waves-effect waves-light btn yellow darken-3" onclick="send_to_report(2016)">2016</a></div>
-    <div class="row"><a class="waves-effect waves-light btn yellow darken-3" onclick="send_to_report(2017)">2017</a></div>
+    <div class="row">
+        <a class="offset-s1" href="#" onclick="send_to_report(2015)">
+            <img src="/static/graphic/2015-01.png" width="20%" >
+        </a>
 
+        <a class="offset-s1" href="#" onclick="send_to_report(2016)">
+            <img src="/static/graphic/2016-01.png" width="20%">
+        </a>
+
+        <a class="offset-s1" href="#" onclick="send_to_report(2017)">
+            <img src="/static/graphic/2017-01.png" width="20%">
+        </a>
+    </div>
+
+</div>
+
+<div id="new-footer">
+    <script>$("#new-footer").load("footer.html");</script>
 </div>
 
 </body>

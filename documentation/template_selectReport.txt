@@ -1,0 +1,6 @@
+        <a href="$href">
+            <div class="$class">
+                <img src="/static/graphic/$src" class="$classImage">
+                <div class="$classText">$text</div>
+            </div>
+        </a>
